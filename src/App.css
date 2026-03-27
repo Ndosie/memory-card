@@ -1,0 +1,42 @@
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.scores {
+  text-align: left;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  width: 280px;
+  height: 350px;
+  background-color: #c174ff;
+  border-radius: 8px;
+  border: 1px solid white;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.5);
+}
+
+select {
+  padding: 8px;
+  border: 1px solid white;
+  border-radius: 8px;
+  margin: 8px;
+  outline: none;
+  font-family: var(--heading);
+  font-size: medium;
+}
+
+select:focus {
+  border: 1px solid whitesmoke;
+}
