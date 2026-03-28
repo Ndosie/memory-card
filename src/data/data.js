@@ -13,6 +13,8 @@ const animals = [
   { id: 35721244, name: "Camel" },
 ];
 
+console.log(animals);
+
 export default function shuffle() {
   return animals.sort(() => Math.random() - 0.5);
 }

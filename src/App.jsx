@@ -7,7 +7,7 @@ function App() {
   const [objects, setObjects] = useState(() => shuffle());
 
   function handleShuffle() {
-    setObjects(() => shuffle());
+    setObjects([...shuffle()]);
   }
 
   return (
