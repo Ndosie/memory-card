@@ -1,23 +1,34 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-function Card() {
+function Card({ id, name, onCardClick }) {
   const [image, setImage] = useState(null);
 
-  console.log(import.meta.env.VITE_PEXELS_KEY);
-
-  fetch("https://api.pexels.com/v1/photos/5130821", {
-    headers: {
-      Authorization: import.meta.env.VITE_PEXELS_KEY,
-    },
-  })
-    .then((res) => res.json())
-    .then((data) => setImage(data))
-    .catch((reason) => console(reason));
+  useEffect(() => {
+    const fetchImage = async () => {
+      try {
+        const res = await fetch(`https://api.pexels.com/v1/photos/${id}`, {
+          headers: {
+            Authorization: import.meta.env.VITE_PEXELS_KEY,
+          },
+        });
+        const data = await res.json();
+        setImage(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchImage();
+  }, [id]);
 
   return (
-    <div className="card">
+    <div
+      className="card"
+      onClick={() => {
+        onCardClick();
+      }}
+    >
       {image && <img src={image.src.medium} alt={image.photographer} />}
-      <span>Cow</span>
+      <span>{name}</span>
     </div>
   );
 }

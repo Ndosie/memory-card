@@ -1,7 +1,15 @@
+import { useState } from "react";
 import "./App.css";
 import Card from "./components/Card";
+import shuffle from "./data/data";
 
 function App() {
+  const [objects, setObjects] = useState(() => shuffle());
+
+  function handleShuffle() {
+    setObjects(() => shuffle());
+  }
+
   return (
     <div className="container">
       <div className="navBar">
@@ -15,23 +23,19 @@ function App() {
         <p>Click the images only once to get the points.</p>
         <select>
           <option>Select objects</option>
-          <option>Domestic Animals</option>
+          <option>Animals</option>
           <option>Fruits</option>
           <option>House Items</option>
         </select>
         <div className="cards">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {objects.map((animal) => (
+            <Card
+              key={animal.id}
+              id={animal.id}
+              name={animal.name}
+              onCardClick={handleShuffle}
+            />
+          ))}
         </div>
       </div>
     </div>
