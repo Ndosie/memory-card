@@ -24,7 +24,7 @@ function Card({ id, name, onCardClick }) {
     <div
       className="card"
       onClick={() => {
-        onCardClick();
+        onCardClick(id);
       }}
     >
       {image && <img src={image.src.medium} alt={image.photographer} />}

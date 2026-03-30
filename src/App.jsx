@@ -5,8 +5,22 @@ import shuffle from "./data/data";
 
 function App() {
   const [objects, setObjects] = useState(() => shuffle());
+  const [selections, setSelections] = useState([]);
+  const [bestScore, setBestScore] = useState(0);
 
-  function handleShuffle() {
+  function handleClick(id) {
+    if (selections.includes(id)) {
+      if (bestScore < selections.length)  
+        setBestScore(selections.length)
+      setSelections([]);
+    } else {
+      if (selections.length === 12) {
+        setBestScore(selections.length);
+        setSelections([])
+      } else {
+        setSelections([...selections, id]);
+      }
+    }
     setObjects([...shuffle()]);
   }
 
@@ -15,8 +29,8 @@ function App() {
       <div className="navBar">
         <h1>Memory Game</h1>
         <div className="scores">
-          <p>Score:0</p>
-          <p>Best Score: 0</p>
+          <p>Score:{selections.length}</p>
+          <p>Best Score: {bestScore}</p>
         </div>
       </div>
       <div className="contents">
@@ -33,7 +47,7 @@ function App() {
               key={animal.id}
               id={animal.id}
               name={animal.name}
-              onCardClick={handleShuffle}
+              onCardClick={handleClick}
             />
           ))}
         </div>
