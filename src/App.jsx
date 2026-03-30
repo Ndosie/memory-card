@@ -4,24 +4,30 @@ import Card from "./components/Card";
 import shuffle from "./data/data";
 
 function App() {
-  const [objects, setObjects] = useState(() => shuffle());
   const [selections, setSelections] = useState([]);
   const [bestScore, setBestScore] = useState(0);
+  const [type, setType] = useState("");
+
+  const objects = shuffle(type);
 
   function handleClick(id) {
     if (selections.includes(id)) {
-      if (bestScore < selections.length)  
-        setBestScore(selections.length)
+      if (bestScore < selections.length) setBestScore(selections.length);
       setSelections([]);
     } else {
       if (selections.length === 12) {
         setBestScore(selections.length);
-        setSelections([])
+        setSelections([]);
       } else {
         setSelections([...selections, id]);
       }
     }
-    setObjects([...shuffle()]);
+  }
+
+  function handleOnchange(e) {
+    setSelections([]);
+    setBestScore(selections.length)
+    setType(e.target.value);
   }
 
   return (
@@ -35,11 +41,11 @@ function App() {
       </div>
       <div className="contents">
         <p>Click the images only once to get the points.</p>
-        <select>
-          <option>Select objects</option>
-          <option>Animals</option>
-          <option>Fruits</option>
-          <option>House Items</option>
+        <select value={type} onChange={handleOnchange}>
+          <option value="">Select objects</option>
+          <option value="animals">Animals</option>
+          <option value="fruits">Fruits</option>
+          <option value="house_items">House Items</option>
         </select>
         <div className="cards">
           {objects.map((animal) => (
