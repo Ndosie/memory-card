@@ -57,3 +57,10 @@ select {
 select:focus {
   border: 1px solid whitesmoke;
 }
+
+a {
+  color: black;
+  text-decoration: none;
+  margin-top: 16px;
+  font-size: small;
+}

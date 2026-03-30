@@ -1,16 +1,54 @@
-# React + Vite
+# Memory Card — Kids Memory Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Memory Card is a small React + Vite project that helps children practice memory and object recognition by clicking images only once. The game shuffles cards each round and encourages repeat-less selection to score points.
 
-Currently, two official plugins are available:
+**Key goals**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Simple, kid-friendly interface for memory practice.
+- Randomized card layout to exercise recall.
+- Lightweight and easy to run locally for development and testing.
 
-## React Compiler
+**Current features**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Clickable image cards (fetched from Pexels) with names.
+- Shuffled card layout on each round.
+- Basic scoreboard placeholders in the UI.
 
-## Expanding the ESLint configuration
+Getting started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Install dependencies:
+
+```bash
+npm install
+```
+
+- Run the dev server:
+
+```bash
+npm run dev
+```
+
+Open the site at the address shown by Vite (usually http://localhost:5173).
+
+Project structure (high level)
+
+- `src/` — source files and components (see `src/components/Card.jsx` and `src/App.jsx`).
+- `src/data/` — sample data and shuffle helper.
+
+Future features (planned)
+
+- Pronunciation feature: speak the object name when a card is shown or clicked (helpful for language learning).
+- Custom image sets: ability to upload or select specific images/objects you want your child to learn about.
+- Persistent scoring and progress tracking across sessions.
+
+Contributing
+
+Feel free to open issues or submit PRs. If you add features (pronunciation, uploads), include tests and update this README with usage details.
+
+License
+
+This repository is open for learning and experimentation. Add a license file if you plan to publish or share more widely.
+
+File: src/App.jsx — main UI and shuffle handler
+
+See the `src` folder to explore implementation details and extend the app.

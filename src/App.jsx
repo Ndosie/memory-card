@@ -26,7 +26,7 @@ function App() {
 
   function handleOnchange(e) {
     setSelections([]);
-    setBestScore(selections.length)
+    setBestScore(selections.length);
     setType(e.target.value);
   }
 
@@ -57,6 +57,7 @@ function App() {
             />
           ))}
         </div>
+        <a href="https://www.pexels.com">Photos provided by Pexels</a>
       </div>
     </div>
   );
