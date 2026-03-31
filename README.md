@@ -35,6 +35,28 @@ Project structure (high level)
 - `src/` — source files and components (see `src/components/Card.jsx` and `src/App.jsx`).
 - `src/data/` — sample data and shuffle helper.
 
+## Netlify configuration
+
+This project includes a Netlify Functions endpoint used to fetch images from Pexels. Follow these steps to deploy on Netlify:
+
+- Netlify settings: `netlify.toml` configures the functions directory to `netlify/functions`.
+- Environment variable: set `PEXELS_KEY` in your Netlify Site settings (Site settings  Build & deploy  Environment).
+- Build command: `npm run build`
+- Publish directory: `dist`
+
+Local testing and deploy:
+
+- Install the Netlify CLI: `npm install -g netlify-cli`.
+- Run locally with `netlify dev` to test functions and the frontend together.
+- To deploy from the CLI, run `netlify deploy --prod` (or connect the repository in the Netlify UI).
+
+Example environment variable in Netlify UI:
+
+- Key: `PEXELS_KEY`
+- Value: your Pexels API key (from https://www.pexels.com/api/)
+
+See [netlify.toml](netlify.toml) for the functions path.
+
 Future features (planned)
 
 - Pronunciation feature: speak the object name when a card is shown or clicked (helpful for language learning).
