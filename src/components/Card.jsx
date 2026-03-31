@@ -6,11 +6,7 @@ function Card({ id, name, onCardClick }) {
   useEffect(() => {
     const fetchImage = async () => {
       try {
-        const res = await fetch(`https://api.pexels.com/v1/photos/${id}`, {
-          headers: {
-            Authorization: import.meta.env.VITE_PEXELS_KEY,
-          },
-        });
+        const res = await fetch(`/.netlify/functions/pexels?id=${id}`);
         const data = await res.json();
         setImage(data);
       } catch (error) {
