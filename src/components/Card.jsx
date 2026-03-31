@@ -8,7 +8,7 @@ function Card({ id, name, onCardClick }) {
       try {
         const res = await fetch(`https://api.pexels.com/v1/photos/${id}`, {
           headers: {
-            Authorization: import.meta.env.VITE_PEXELS_KEY,
+            Authorization: import.meta.env.PEXELS_KEY,
           },
         });
         const data = await res.json();
